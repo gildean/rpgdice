@@ -3,10 +3,10 @@ var events = require('events'),
 
 var Dice = function () {
     events.EventEmitter.call(this);
-    var self = this,
-        error = false;
+    var self = this;
     this.roll = function (dice, roller) {
         var roller = roller || 'player',
+            error = false,
             i, dices, times, withoutmod, result, mod;
         if (dice) {
             self.emit('rolling', dice, roller);

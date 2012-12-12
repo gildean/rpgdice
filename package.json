@@ -1,6 +1,6 @@
 {
   "name": "rpgdice",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Olli K <olli@salaliitto.com>",
   "description": "Simple eventful dice for rpg or any dicegame",
   "main": "index.js",
