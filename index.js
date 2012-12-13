@@ -7,23 +7,25 @@ var Dice = function () {
     this.roll = function (dice, roller) {
         var roller = roller || 'player',
             error = false,
-            i, dices, times, withoutmod, result, mod;
+            i, dices, times, withoutmod, result, mod, die;
         if (dice) {
             self.emit('rolling', dice, roller);
             dices = dice.split('d');
             if (dices.length > 1) {
                 times = parseInt(dices[0]);
                 withoutmod = dices[1].split('+');
-                die = parseInt(withoutmod[0].replace('d','')) - 1;
+                die = parseInt(withoutmod[0]) - 1;
                 result = 0;
                 if (withoutmod.length > 1) {
-                    mod = parseInt(withoutmod[1].replace('+',''));
-                    result += mod;
+                    mod = parseInt(withoutmod[1]);
+                    if (!isNaN(mod)) {
+                        result += mod;
+                    }
                 }
                 function rolling() {
                     return parseInt(Math.round(Math.random() * die) + 1);
                 };
-                if (die > 0 && die < 1000001 && times > 0 && times < 1001) {
+                if (!isNaN(die) && die > 0 && die < 1000001 && times > 0 && times < 1001) {
                     for (i = 0; i < times; i += 1) {
                         roll = rolling();
                         self.emit('roll', roll, roller);
