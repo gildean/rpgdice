@@ -17,7 +17,7 @@ Require the module:
 
 Roll the dice:
 `dice.roll('1d6+4', 'player1', 'game1')`
-  * the dice must be in the form of *side* __d__ *rolls*
+  * the dice must be in the form of *rolls* __d__ *sides*
   * the modifier (+4 etc.), the playername and the gamename can be omitted*
 
 events
