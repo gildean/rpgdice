@@ -17,18 +17,43 @@ Require the module:
 
 Roll the dice:
 `dice.roll('1d6+4', 'player1', 'game1')`
-*the modifier (+4 etc.), the playername and the gamename can be omitted*
+  * the dice must be in the form of *side* __d__ *rolls*
+  * the modifier (+4 etc.), the playername and the gamename can be omitted*
 
-Dice has the following events:
+events
+------
+dice.on(' *event* ', function ( *args* ) {});
 
-`dice.on('rolling', function (dice, roller, game) {});` *when a player rolls*
+__'rolling', dice, roller, game__
 
-`dice.on('roll', function (roll, roller, game) {});` *when a single dice rolls*
+*when a player rolls*
+  * *dice* _string_
+  * *roller* _string_
+  * *game* _string_
 
-`dice.on('result', function (result, roller, game) {});` *when all the dice have been rolled*
+__'roll', roll, roller, game__
 
-`dice.on('misroll', function (error, roller, game) {});` *if the dice was malformed or other errors occur*
+*when a single dice rolls*
+  * *roll* _string_
+  * *roller* _string_
+  * *game* _string_
+
+__'result', dice, rolls, result, roller, game__
+
+*when all the dice have been rolled*
+  * *dice* _string_
+  * *rolls* _array_
+  * *result* _number_
+  * *roller* _string_
+  * *game* _string_
+
+__'misroll', error, roller, game__
+
+*if the dice was malformed or other errors occur*
+  * *error* _error_
+  * *roller* _string_
+  * *game* _string_
 
 License
 -------
-MIT
+MIT: [http://ok.mit-license.org/](http://ok.mit-license.org/)
